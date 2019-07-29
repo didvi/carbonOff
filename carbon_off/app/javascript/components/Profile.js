@@ -1,11 +1,7 @@
 import React from 'react';
 import Footprint from './Footprint';
-import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Button } from 'antd';
-import { Steps, Icon } from 'antd';
-
-const { Step } = Steps;
 
 const carbonData = [
   {month: 1, before: 20, after: 3},
@@ -26,29 +22,13 @@ class Profile extends React.Component {
     }
   }
 
-
-  calculateCarbon() {
-    let carbon;
-    carbon = this.state.fly_hours * 10;
-    carbon += this.state.car_hours;
-    return carbon;
-  }
-
   render() {
     return (
       <div>
-        <Steps>
-          <Step status="finish" title="Login" icon={<Icon type="user" />} />
-          <Step status="finish" title="Calculate Emissions" icon={<Icon type="solution" />} />
-          <Step status="process" title="Pay" icon={<Icon type="money-collect" />} />
-          <Step status="wait" title="Feel Great" icon={<Icon type="smile-o" />} />
-        </Steps>
-        
-        <Footprint carbonData={carbonData}></Footprint>
+        <Footprint carbonData={carbonData} currentEmissions={this.props.currentEmissions}></Footprint>
 
-        <Button type="primary">Offset Now</Button>
-        <Link to='./questionnaire'><Button>Enter Data</Button>
-        </Link>
+        <Button type="primary" onClick={() => this.props.changePage(2)}>Offset Now</Button>
+        <Button onClick={() => this.props.changePage(0)}>Enter Data</Button>
       </div>
     )
   }

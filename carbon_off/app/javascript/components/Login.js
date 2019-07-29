@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Input } from 'antd';
 
 class Login extends React.Component {
   render() {
@@ -9,9 +10,9 @@ class Login extends React.Component {
         <h1>Carbon Off</h1>
         <Link to='./about'>What is Carbon Off?</Link>
         <br/>
-        <input></input>
-        <input></input>
-        <Link to='./profile'>Login</Link>
+        <Input></Input>
+        <Input></Input>
+        <Button onClick={() => this.props.changePage(1)}>Login</Button>
       </div>
     )
   }
