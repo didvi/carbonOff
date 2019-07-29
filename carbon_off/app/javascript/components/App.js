@@ -12,8 +12,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      pageNumber: 0, 
-      currentEmissions: 200,
+      pageNumber: 2, 
+      currentEmissions: 500,
       cause: "",
     }
     this.changePage = this.changePage.bind(this);
@@ -63,14 +63,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Steps>
-          <Step status={this.pageStatus(0)} title="Calculate Emissions" icon={<Icon type="user" />} />
-          <Step status={this.pageStatus(1)} title="View Emissions" icon={<Icon type="solution" />} />
-          <Step status={this.pageStatus(2)} title="Choose a Cause" icon={<Icon type="money-collect" />} />
-          <Step status={this.pageStatus(3)} title="Offset Your Carbon" icon={<Icon type="smile-o" />} />
-        </Steps>
-        
+      <div id="app">
+        <div id="navbar">
+          <Steps>
+            <Step status={this.pageStatus(0)} title="Calculate Emissions" icon={<Icon type="user" />} />
+            <Step status={this.pageStatus(1)} title="View Emissions" icon={<Icon type="solution" />} />
+            <Step status={this.pageStatus(2)} title="Choose a Cause" icon={<Icon type="money-collect" />} />
+            <Step status={this.pageStatus(3)} title="Offset Your Carbon" icon={<Icon type="smile-o" />} />
+          </Steps> 
+        </div>
+
         {this.getPage()}
       </div>
     )

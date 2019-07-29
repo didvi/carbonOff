@@ -4,6 +4,8 @@ import { Slider, Button } from 'antd';
 import 'antd/dist/antd.css';
 import { calculateCarbon } from '../util/helpers.js';
 import { DatePicker } from 'antd';
+import SimpleQuestions from './SimpleQuestions.js';
+import DetailedQuestions from './DetailedQuestions.js';
 
 const { MonthPicker } = DatePicker;
 
@@ -11,51 +13,38 @@ class Questionnaire extends React.Component {
   constructor() {
     super();
     this.state = {
-      location: "",
-      fly_hours: 0,
-      car_hours: 0,
-      month: 0 
+      questionnaireType: "" 
     }
-    this.handleMonthChange = this.handleMonthChange.bind(this);
-    this.handlePlaneChange = this.handlePlaneChange.bind(this);
-    this.handleCarChange = this.handleCarChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleMonthChange(value) {
-    console.log("month", value.month());
-    this.setState({month: value})
+  chooseQuestionnaire(x) {
+    if (x === 0) {
+      this.setState({questionnaireType: "simple"})
+    } else {
+      this.setState({questionnaireType: "detailed"})
+    }
   }
-  handlePlaneChange(value) {
-    this.setState({fly_hours: value});
-  }
+  
+  getQuestionnaire() {
+    let updateEmissions = this.props.updateEmissions;
+    let updateProfile = this.props.updateProfile;
 
-  handlePlaneChange(value) {
-    this.setState({fly_hours: value});
-  }
-
-  handleCarChange(value) {
-    this.setState({car_hours: value});
-  }
-
-  handleSubmit() {
-    let carbon = calculateCarbon("car", this.state.car_hours);
-    carbon += calculateCarbon("plane", this.state.fly_hours);
-    this.props.updateEmissions(carbon, this.state.month);
-    this.props.changePage(1);
+    if (this.state.questionnaireType === "detailed") {
+      return (<SimpleQuestions updateEmissions={updateEmissions} updateProfile={updateProfile}></SimpleQuestions>)
+    } else if (this.state.questionnaireType === "simple") {
+      return (<DetailedQuestions updateEmissions={updateEmissions} updateProfile={updateProfile}></DetailedQuestions>)
+    } else {
+      return (<div id="question-options">
+              <Button onClick={() => this.chooseQuestionnaire(0)}>Calculate Footprint based on location</Button>
+              <Button onClick={() => this.chooseQuestionnaire(1)}>Calculate Footprint based on my answers</Button></div>)
+    }
   }
 
   render() {
     return (
-      <form>
-        <h2>Enter a month.</h2>
-          <MonthPicker onChange={this.handleMonthChange}></MonthPicker>
-        <h2>How many hours did you fly this month?</h2>
-            <Slider onChange={this.handlePlaneChange} defaultValue={0}/>
-        <h2>How much did you drive this month?</h2>
-          <Slider onChange={this.handleCarChange} defaultValue={0}/>
-        <Button type="primary" onClick={this.handleSubmit}>Offset Now</Button>
-      </form>
+      <div id='questionnaire'>
+        {this.getQuestionnaire()}
+      </div>
     )
   }
 }

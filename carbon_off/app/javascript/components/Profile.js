@@ -24,7 +24,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="profile">
         <Footprint carbonData={carbonData} currentEmissions={this.props.currentEmissions}></Footprint>
 
         <Button type="primary" onClick={() => this.props.changePage(2)}>Offset Now</Button>

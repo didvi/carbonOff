@@ -1,0 +1,27 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.0/libexec/bin/yarn.js add less less-loader
+
+PATH: 
+  /Users/divischmidt/.rvm/gems/ruby-2.6.0/bin:/Users/divischmidt/.rvm/gems/ruby-2.6.0@global/bin:/Users/divischmidt/.rvm/rubies/ruby-2.6.0/bin:/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/divischmidt/.rvm/bin
+
+Yarn version: 
+  1.17.0
+
+Node version: 
+  10.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

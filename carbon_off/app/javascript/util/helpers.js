@@ -18,3 +18,4 @@ export function calculateCarbon(type, hours) {
       return hours * 150
   }
 }
+
