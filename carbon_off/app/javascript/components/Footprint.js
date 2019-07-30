@@ -11,10 +11,11 @@ class Footprint extends React.Component {
   render() {    
     return (
       <div id='footprint'>
-        <h1>Your Footprint</h1>
-        <p>The average footprint in your country 
-          is around 10 tonnes of CO2. Your footprint 
-          is above average. Let's reduce it together!</p>
+        <h1>Your Mobility Footprint</h1>
+        <p>The current results reflect the amount of carbon you have emitted this past month
+          just for transportation. We understand that it is difficult to reduce this number, 
+          offsetting your carbon footprint is a great way to mitigate the harm we do to the
+          environment. Let's reduce your footprint together!</p>
           <div className='graph'>
             <h2>Current Footprint: {this.props.emissions}kg of CO2</h2>
             <Progress percent={this.props.emissions / 10} status="exception" showInfo={false}/>

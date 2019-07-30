@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $backgroundColor: #FFFFFF;
-$secondaryBackground: #F1F9FF;
+$secondaryBackground: rgb(246, 249, 252);
 $primary: #2699FB;
 
 html {
@@ -13,7 +13,7 @@ p {
     font-size: 18px;
 }
 
-.button {
+button {
     padding-right: 20px;
 }
 
@@ -46,6 +46,30 @@ p {
     }
 }
 
+#app {
+    background-repeat:no-repeat;
+    background-size:contain;
+    height:100%;
+    width:100%;
+    overflow: hidden;
+}
+
+.background0 {
+    background-image: url(asset_path('emissions.jpg'));
+}
+
+.background1 {
+    background-image: url(asset_path('clouds.jpg'));
+}
+
+.background2 {
+    background-image: url(asset_path('poppies.jpg'));
+}
+
+.background3 {
+    background-image: url(asset_path('windmills.jpg'));
+}
+
 // styling for profile
 #profile {
     width: 70%;
@@ -56,12 +80,9 @@ p {
 
 #footprint {
     h1 {
+        padding-top: 10px;
         font-size: 50px;
         text-align: center;
-    }
-
-    p {
-        max-width: 700px;
     }
 
     .graph {
@@ -79,8 +100,16 @@ p {
     > div {
         margin: 30px 0px;
         padding: 20px;
-        background-color: $secondaryBackground;
-        box-shadow: $primary 10px 10px;
+        background-color: #FCFCFB;
+        border-left: solid #F3A277 16px;
+        // box-shadow: #F3A277 14px 14px;
+    }
+
+    h1 a {
+        color: #313131;
+    }
+    button {
+        margin-top: 10px;
     }
 }
 
@@ -90,6 +119,28 @@ p {
     justify-content: center;
 
     button {
-        margin: 20px 0px;
+        margin: 20px 20px 20px 0px;
+    }
+
+    h1 {
+        font-size: 42px;
+        padding: 20px 0px 0px 0px;
+    }
+
+    h2 {
+        font-size: 26px; 
+        span {
+            font-size: 40px;
+        }
+    }
+
+    .payment-input {
+        h3 {
+            margin: 0px;
+        }
+        font-size: 28px;
+        margin: 40px 0px;
     }
 }
+
+

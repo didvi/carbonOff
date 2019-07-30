@@ -43,13 +43,13 @@ class DetailedQuestions extends React.Component {
       <div className='questionnaire'>
         <div>   
           <h2>How many hours did you fly this month?</h2>
-          <p>The average person flys __ hours a month.</p>
+          {/* <p>The average person flys __ hours a month.</p> */}
               <Slider onChange={this.handlePlaneChange} defaultValue={0}/> 
               <h3>{this.state.fly_hours} hours</h3>
         </div>
         <div>
           <h2>How many hours did you drive this month?</h2>
-          <p>The average person drives __ hours a month.</p>
+          {/* <p>The average person drives __ hours a month.</p> */}
             <Slider onChange={this.handleCarChange} defaultValue={0}/>
             <h3>{this.state.car_hours} hours</h3>
         </div>

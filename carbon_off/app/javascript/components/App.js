@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      pageNumber: 0, 
+      pageNumber: 3, 
       emissions: 500,
       cause: "",
     }
@@ -48,7 +48,6 @@ class App extends React.Component {
       default:
         return (<Login changePage={this.changePage}></Login>)
     }
-
   }
 
   pageStatus(p) {
@@ -61,18 +60,23 @@ class App extends React.Component {
     }
   }
 
+  getBackground() {
+    return "background" + this.state.pageNumber;
+  }
+
   render() {
     return (
-      <div id="app">
+      <div id="app" className={this.getBackground()}>
         <div id="navbar">
+          <title>Carbon Off</title>
           <Steps>
             <Step status={this.pageStatus(0)} title="Calculate Emissions" icon={<Icon type="user" />} />
             <Step status={this.pageStatus(1)} title="View Emissions" icon={<Icon type="solution" />} />
-            <Step status={this.pageStatus(2)} title="Choose a Cause" icon={<Icon type="money-collect" />} />
+            <Step status={this.pageStatus(2)} title="Choose a Cause" icon={<Icon type="project" />} />
             <Step status={this.pageStatus(3)} title="Offset Your Carbon" icon={<Icon type="smile-o" />} />
           </Steps> 
         </div>
-
+        <div className='background'></div>
         {this.getPage()}
       </div>
     )
