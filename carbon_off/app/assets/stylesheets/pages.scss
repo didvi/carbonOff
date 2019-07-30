@@ -39,8 +39,7 @@ p {
 
 // styling for questionnaire
 
-#questionnaire {
-    width: 60%;
+#questionnaire > div{
     > div {
         margin: 60px 10px;
     }

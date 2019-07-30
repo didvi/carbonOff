@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      pageNumber: 2, 
+      pageNumber: 0, 
       currentEmissions: 500,
       cause: "",
     }

@@ -292,7 +292,8 @@ class SimpleQuestions extends React.Component {
 
 SimpleQuestions.propTypes = {
   updateProfile: PropTypes.func,
-  updateEmissions: PropTypes.func
+  updateEmissions: PropTypes.func,
+  changePage: PropTypes.func,
 };
 
 export default SimpleQuestions

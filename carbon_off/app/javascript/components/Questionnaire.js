@@ -28,11 +28,16 @@ class Questionnaire extends React.Component {
   getQuestionnaire() {
     let updateEmissions = this.props.updateEmissions;
     let updateProfile = this.props.updateProfile;
+    let changePage = this.props.changePage;
 
-    if (this.state.questionnaireType === "detailed") {
-      return (<SimpleQuestions updateEmissions={updateEmissions} updateProfile={updateProfile}></SimpleQuestions>)
-    } else if (this.state.questionnaireType === "simple") {
-      return (<DetailedQuestions updateEmissions={updateEmissions} updateProfile={updateProfile}></DetailedQuestions>)
+    if (this.state.questionnaireType === "simple") {
+      return (<SimpleQuestions updateEmissions={updateEmissions} 
+                               changePage={changePage}
+                               updateProfile={updateProfile}></SimpleQuestions>)
+    } else if (this.state.questionnaireType === "detailed") {
+      return (<DetailedQuestions updateEmissions={updateEmissions} 
+                               changePage={changePage}
+                               updateProfile={updateProfile}></DetailedQuestions>)
     } else {
       return (<div id="question-options">
               <Button onClick={() => this.chooseQuestionnaire(0)}>Calculate Footprint based on location</Button>
@@ -51,7 +56,8 @@ class Questionnaire extends React.Component {
 
 Questionnaire.propTypes = {
   updateProfile: PropTypes.func,
-  updateEmissions: PropTypes.func
+  updateEmissions: PropTypes.func,
+  changePage: PropTypes.func,
 };
 
 export default Questionnaire

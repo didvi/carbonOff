@@ -60,7 +60,8 @@ class DetailedQuestions extends React.Component {
 
 DetailedQuestions.propTypes = {
   updateProfile: PropTypes.func,
-  updateEmissions: PropTypes.func
+  updateEmissions: PropTypes.func, 
+  changePage: PropTypes.func,
 };
 
 export default DetailedQuestions
