@@ -11,7 +11,7 @@ export function calculateCarbon(type, hours) {
     case "car":
       console.log("calculating for car", hours)
       // one hour of driving is ??? per hour
-      return hours * 1
+      return hours * 0.125
     case "plane":
       console.log("calculate for plane", hours)
       // one hour of flight is 150kg of CO2 per hour

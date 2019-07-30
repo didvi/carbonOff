@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
-import { Button, Slider } from 'antd';
+import { Button, InputNumber } from 'antd';
 
 class Payment extends React.Component {
   constructor() {
@@ -24,22 +24,25 @@ class Payment extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='payment'>
         <h1>Pay Now</h1>
-        <p>Your carbon footprint is {this.props.currentEmissions} 
+        <p>Your carbon footprint is {this.props.emissions}  
              which is worth lots of money</p>
         
         <h3>How much would you like pay?</h3>
-        <Slider onChange={this.updateOffsetAmount}></Slider>
-        <Button onClick={() => this.props.changePage(2)} type="ghost">Cancel</Button>
-        <Button onClick={this.handleSubmit} type="primary">Pay Now</Button>
+        <InputNumber onChange={this.updateOffsetAmount}></InputNumber>
+        
+        <div>
+          <Button className='button' size='large' onClick={() => this.props.changePage(2)} type="ghost">Cancel</Button>
+          <Button className='button' size='large' onClick={this.handleSubmit} type="primary">Pay Now</Button>
+        </div>
       </div>
     )
   }
 }
 
 Payment.PropTypes = {
-  currentEmissions: PropTypes.number, 
+  emissions: PropTypes.number, 
   changePage: PropTypes.func,
   offsetAmount: PropTypes.func,
 }

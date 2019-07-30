@@ -33,13 +33,14 @@ class DetailedQuestions extends React.Component {
   handleSubmit() {
     let carbon = calculateCarbon("car", this.state.car_hours);
     carbon += calculateCarbon("plane", this.state.fly_hours);
-    this.props.updateEmissions(carbon, this.state.month);
+    console.log("carbon", carbon);
+    this.props.updateEmissions(carbon);
     this.props.changePage(1);
   }
 
   render() {
     return (
-      <div>
+      <div className='questionnaire'>
         <div>   
           <h2>How many hours did you fly this month?</h2>
           <p>The average person flys __ hours a month.</p>
@@ -52,7 +53,7 @@ class DetailedQuestions extends React.Component {
             <Slider onChange={this.handleCarChange} defaultValue={0}/>
             <h3>{this.state.car_hours} hours</h3>
         </div>
-        <Button type="primary" onClick={this.handleSubmit}>Offset Now</Button>
+        <Button size='large' type="primary" onClick={this.handleSubmit}>Offset Now</Button>
       </div>
     )
   }

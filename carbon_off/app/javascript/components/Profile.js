@@ -25,10 +25,10 @@ class Profile extends React.Component {
   render() {
     return (
       <div id="profile">
-        <Footprint carbonData={carbonData} currentEmissions={this.props.currentEmissions}></Footprint>
+        <Footprint carbonData={carbonData} emissions={this.props.emissions}></Footprint>
 
-        <Button type="primary" onClick={() => this.props.changePage(2)}>Offset Now</Button>
-        <Button onClick={() => this.props.changePage(0)}>Enter Data</Button>
+        <Button className='button' size='large' onClick={() => this.props.changePage(0)}>Enter Data</Button>
+        <Button className='button' size='large' type="primary" onClick={() => this.props.changePage(2)}>Offset Now</Button>
       </div>
     )
   }

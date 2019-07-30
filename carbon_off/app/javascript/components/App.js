@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from './Login';
 import Profile from './Profile';
-import Questionnaire from './Questionnaire';
+import DetailedQuestions from './DetailedQuestions';
 import Causes from './Causes';
 import { Steps, Icon } from 'antd';
 import Payment from './Payment';
@@ -13,7 +13,7 @@ class App extends React.Component {
     super()
     this.state = {
       pageNumber: 0, 
-      currentEmissions: 500,
+      emissions: 500,
       cause: "",
     }
     this.changePage = this.changePage.bind(this);
@@ -36,15 +36,15 @@ class App extends React.Component {
   getPage() {
     switch (this.state.pageNumber) {
       case 0:
-        return (<Questionnaire updateEmissions={this.updateEmissions} changePage={this.changePage}></Questionnaire>)
+        return (<DetailedQuestions updateEmissions={this.updateEmissions} changePage={this.changePage}></DetailedQuestions>)
       case 1:
-        return (<Profile currentEmissions={this.state.currentEmissions} changePage={this.changePage}></Profile>)
+        return (<Profile emissions={this.state.emissions} changePage={this.changePage}></Profile>)
       case 2:
         return (<Causes chooseCause={this.chooseCause} changePage={this.changePage}></Causes>)
       case 3:
         return (<Payment offsetAmount={this.offsetAmount} 
                          changePage={this.changePage} 
-                         currentEmissions={this.state.currentEmissions}></Payment>)
+                         emissions={this.state.emissions}></Payment>)
       default:
         return (<Login changePage={this.changePage}></Login>)
     }
