@@ -31,18 +31,22 @@ class Payment extends React.Component {
     return (
       <div id='payment'>
         <h1>Offset Your Carbon Now!</h1>
-        <h2>Your monthly mobility footprint: <span>{emissions}kg of CO2</span></h2>
-        <h2>Cost to offset this month's mobility footprint: <span>€{emissionsCost}</span></h2>
+        <p>5% of your payment will go towards improving our company and expanding our reach in the market.
+          The better we do as a company, the better the environment does as well. <a style={{"color": "grey"}}>Learn More...</a>
+        </p>
+        <h3>Your monthly mobility footprint: </h3>
+        <h2><span>{emissions}kg of CO2</span></h2>
+        <h3>Cost to offset this month's mobility footprint:</h3>
+        <h2><span>${emissionsCost}</span></h2>
         <div className='payment-input'>
-          <h3>Enter Your Monthly Payment Amount</h3>
+          <h3>Enter Your Payment Amount</h3>
           <InputNumber size='large' onChange={this.updateOffsetAmount} defaultValue={emissionsCost}></InputNumber>
-        </div>
-        
+           USD
+        </div>    
         <div>
           <Button className='button' size='large' onClick={() => this.props.changePage(2)} type="default">Cancel</Button>
           <Button className='button' size='large' onClick={this.handleSubmit} type="primary">Pay Now</Button>
         </div>
-
       </div>
     )
   }

@@ -18,6 +18,6 @@ export function calculateCarbon(type, hours) {
 }
 
 export function calculateCarbonCost(carbon) {
-  return carbon / 100 * 29.05;
+  return carbon / 1000 * 32.40;
 }
 

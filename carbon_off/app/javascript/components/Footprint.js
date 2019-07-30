@@ -4,7 +4,7 @@ import * as V from 'victory';
 import 'antd/dist/antd.css';
 import { Progress } from 'antd';
 
-const averageFootprint = 100;
+const averageFootprint = 683;
 
 class Footprint extends React.Component {
 
