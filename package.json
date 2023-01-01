@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "less": "^3.9.0",
-    "less-loader": "^5.0.0",
+    "less-loader": "^11.1.0",
     "react-stripe-elements": "^4.0.0"
   }
 }
